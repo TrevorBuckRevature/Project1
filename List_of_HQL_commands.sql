@@ -1,5 +1,16 @@
 
 --1. 
+CREATE TABLE october20 (
+domain STRING,
+title STRING,
+views INT,
+num INT
+)
+ROW FORMAT DELIMITED
+FIELDS TERMINATED BY '\t';
+
+// Load Data
+
 SELECT title, SUM(views) AS total_views
 FROM october20
 WHERE domain LIKE '%en%'
@@ -17,6 +28,16 @@ LIMIT 10;
 --Effect on Results
 --Events that happened in september can have > 100% link rate
 
+CREATE TABLE sept_click (
+prev STRING,
+curr STRING,
+type STRING,
+num INT
+)
+ROW FORMAT DELIMITED
+FIELDS TERMINATED BY '\t';
+
+//Load Data
 
 CREATE TABLE prev_clicks AS
 SELECT prev,
